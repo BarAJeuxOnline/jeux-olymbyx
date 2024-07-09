@@ -1,0 +1,20 @@
+{
+  "name": "bajo-olymbyx",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.4.0",
+  "description": "Jeux Olymbyx website",
+  "author": "ChatonDeAru <https://github.com/chatondearu>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "pnpm --stream -r run dev",
+    "build": "pnpm --stream -r run build",
+    "serve": "pnpm --stream -r run serve",
+    "up": "taze major -I"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "taze": "0.13.1",
+    "typescript": "^5.3.3"
+  }
+}

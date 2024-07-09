@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "name": "ROOT",
+      "path": "../"
+    },
+    {
+      "name": "app",
+      "path": "../modules/app"
+    },
+    // {
+    //   "name": "admin",
+    //   "path": "../modules/admin"
+    // },
+    {
+      "name": "shared",
+      "path": "../modules/shared"
+    },
+    // {
+    //   "name": "supabase",
+    //   "path": "../modules/supabase"
+    // }
+  ],
+  "settings": {
+    "i18n-ally.localesPaths": [
+      "modules/app/locales"
+    ]
+  }
+}
