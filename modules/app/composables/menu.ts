@@ -4,7 +4,7 @@ export const useMenu = () => {
   const menu = ref([
     {
       to: { name: 'Home' },
-      label: t('navigation.home')
+      label: 'Accueil'
     },
   ])
 
