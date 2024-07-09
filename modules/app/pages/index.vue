@@ -104,7 +104,7 @@ fr:
   section_jo:
     title: "À l'occasion des Jeux Olympiques de Paris 2024"
     subtitle: "Venez participer à nos tournois de jeux de société"
-    description: "Le studio Bombyx vous propose de participer à des tournois de leur jeux de société sur Board Game Arena. Les tournois sont ouverts à tous et se dérouleront du 26 juillet au 11 août 2024. Pour chaques jours des JO retrouvez un tournoi sur un jeu différent édité par Bombyx et disponible sur Board Game Arena."
+    description: "La maison d'édition Bombyx vous propose de participer à des tournois de leur jeux de société sur Board Game Arena. Les tournois sont ouverts à tous et se dérouleront du 26 juillet au 11 août 2024. Pour chaque jours des JO retrouvez un tournoi sur un jeu différent édité par Bombyx et disponible sur Board Game Arena."
     not_linked_to_jo: "L'évènement \"Jeux Olymbyx\" n'est en aucun cas lié de prés ou de loin aux Jeux Olympiques de Paris 2024."
   section_tournaments:
     title: "Programme des tournois"

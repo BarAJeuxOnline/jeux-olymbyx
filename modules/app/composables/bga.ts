@@ -1,8 +1,12 @@
-export const useBgaGame = (gameId: MaybeRef<string | undefined>) => {
+export const useBgaGame = (gameId: MaybeRef<string | undefined>, tutorialId: MaybeRef<string | number | undefined>) => {
   const { locale } = useI18n()
 
   if (typeof gameId === 'string' || !gameId) {
     gameId = ref(gameId)
+  }
+
+  if (typeof tutorialId === 'string' || typeof tutorialId === 'number' || !tutorialId) {
+    tutorialId = ref(tutorialId)
   }
 
   const medias = computed(() => {
@@ -20,6 +24,7 @@ export const useBgaGame = (gameId: MaybeRef<string | undefined>) => {
 
   return {
     medias,
+    tutorial: computed(() => tutorialId.value && `https://boardgamearena.com/tutorial?game=${gameId.value}&tutorial=${tutorialId.value}` || null),
     link: computed(() => `https://boardgamearena.com/gamepanel?game=${gameId.value}`)
   }
 }
@@ -34,7 +39,7 @@ export const useBgaTournament = (tournamentId: MaybeRef<string | number>, token:
   }
 
   return {
-    link: computed(() => `https://boardgamearena.com/tournament?id=${tournamentId.value}${token.value ? `&token=${token.value}` : ''}`)
+    link: computed(() => `https://boardgamearena.com/tournament?id=${tournamentId.value}${token.value && !import.meta.dev ? `&token=${token.value}` : ''}`)
   }
 }
 
@@ -46,7 +51,7 @@ export const useBombyx = (gameId: MaybeRef<string | undefined>) => {
   }
 
   return {
-    link: computed(() => gameId.value ? `https://studiobombyx.com/${locale.value}/jeu/${gameId.value}` : null)
+    link: computed(() => gameId.value ? `https://studiobombyx.com/${locale.value !== 'fr' ? `${locale.value}/` : ''}jeu/${gameId.value}` : null)
   }
 }
 

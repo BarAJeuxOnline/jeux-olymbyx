@@ -13,7 +13,7 @@ withDefaults(defineProps<{
 <template>
   <div
     :class="{
-      'slab-32': padding,
+      'lg:slab-32 slab-16': padding,
     }"
   >
     <section centered-container>

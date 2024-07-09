@@ -9,7 +9,10 @@ const { menu } = useMenu()
 <template>
   <nav p-2 gap-2 overflow-hidden flex>
     <Button v-for="link in menu" :to="link.to" exact bg-orange text-white font-bold>
-      {{ link.label }}
+      <span md:hidden>
+        <Icon :name="link.icon" :title="link.label" />
+      </span>
+      <span hidden md:inline>{{ link.label }}</span>
     </Button>
   </nav>
 </template>

@@ -18,7 +18,7 @@ const { t } = useI18n()
 
     <div md:aspect-video md:max-h-4xl mx-auto>
       <div v-motion-slide-top slab-32 text-center>
-        <h1 text-white font-serif text-8xl text-shadow-xl><span bg="blue-700/33" px-4>{{ t('hero.title') }}</span></h1>
+        <h1 text-white font-serif lg:text-8xl text-5xl text-shadow-xl><span bg="blue-700/33" px-4>{{ t('hero.title') }}</span></h1>
         <h1 text-white font-serif text-shadow-xl><span bg="blue-700/33" px-4>{{ t('hero.subtitle') }}</span></h1>
       </div>
 

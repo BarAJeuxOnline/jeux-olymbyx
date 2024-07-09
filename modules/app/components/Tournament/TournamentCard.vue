@@ -11,16 +11,18 @@ const props = defineProps<{
   bgaGameId: string
   bgaTournamentId: string | number
   bgaToken: string
+  bgaTutoId?: string | number
   bombyxId?: string
   bggId?: string
   bajo?: boolean
+  rulesLink?: string
   body: any
   inline?: boolean
 }>()
 
-const { bgaGameId, bgaTournamentId, bgaToken, bombyxId, bggId } = toRefs(props)
+const { bgaGameId, bgaTournamentId, bgaToken, bombyxId, bggId, bgaTutoId } = toRefs(props)
 
-const { medias } = useBgaGame(bgaGameId)
+const { medias, tutorial } = useBgaGame(bgaGameId, bgaTutoId)
 const { link } = useBgaTournament(bgaTournamentId, bgaToken)
 const { link: bombyxLink } = useBombyx(bombyxId)
 const { link: bggLink } = useBgg(bggId)
@@ -53,19 +55,25 @@ const today = formatDate(Date.now())
         <h5>{{ t('tournament_informations') }}</h5>
         <p font-600 text-black-300>{{ t('tournament_date', { date: formatDate(date, DATES_FORMATS.FULL, locale)}) }}</p>
         <ContentRendererMarkdown :value="{ body }" />
+
+        <p>
+          <HotLink v-if="bombyxLink || bggLink" :href="bombyxLink || bggLink">
+            {{ t('button.more', { game: title }) }}
+          </HotLink>
+        </p>
       </div>
 
       <div slab-8 row-container flex-wrap gap-4 font-600>
         <Button bg-amber-500 text-white :href="link" v-if="date >= today">
-          {{ t('button.register') }}
+          <Icon mr-2 name="i-mdi-trophy" />{{ t('button.register') }}
         </Button>
 
-        <!-- <Button v-if="rules">
-          <Icon mr-2 name="i-mdi-pencil-ruler" />{{ t('button.rules') }}
-        </Button> -->
+        <Button v-if="tutorial" :href="tutorial">
+          <Icon mr-2 name="i-mdi-school" />{{ t('button.tutorial') }}
+        </Button>
 
-        <Button v-if="bombyxLink || bggLink" :href="bombyxLink || bggLink">
-          {{ t('button.more', { game: title }) }}
+        <Button v-if="rulesLink" :href="rulesLink">
+          <Icon mr-2 name="i-mdi-pencil-ruler" />{{ t('button.rules') }}
         </Button>
 
         <Button v-if="bajo" btn-primary href="https://discord.gg/barajeuxonline">
@@ -83,6 +91,7 @@ const today = formatDate(Date.now())
     button:
       register: "S'inscrire au tournoi"
       rules: "Lire les règles"
+      tutorial: "Apprendre à jouer"
       more: "En savoir plus sur {game}"
       bajo: "Rejoindre le Bar à Jeux Online."
 </i18n>
