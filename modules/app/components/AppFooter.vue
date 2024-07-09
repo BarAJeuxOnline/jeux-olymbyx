@@ -4,6 +4,7 @@ defineOptions({
 })
 
 const { menu } = useMenu()
+const { t } = useI18n()
 </script>
 
 <template>
@@ -14,25 +15,25 @@ const { menu } = useMenu()
           <h5>Bar à Jeux Online :</h5>
           <ul mt-4 list-image[url()] class="responsive">
             <li>
-              Apprends en plus sur
+              {{ t('branding.learn_about_us') }}
               <HotLink href="https://barajeuxonline.fr" isExternal>
-                Notre Site
+                {{ t('branding.our_website') }}
               </HotLink>
             </li>
             <li>
-              Rejoins notre serveur
+              {{ t('branding.join_our_server') }}
               <HotLink href="https://discord.com/servers/bar-a-jeux-online-691614580945715231" isExternal>
                 Discord
               </HotLink>
             </li>
             <li>
-              Visite notre compte
+              {{ t('branding.visit_our_account') }}
               <HotLink href="https://www.instagram.com/barajeuxonline" isExternal>
                 Instagram
               </HotLink>
             </li>
             <li>
-              Ou sur
+              {{ t('branding.or_on') }}
               <HotLink href="https://boardgamearena.com/group?id=6488822&sp=1eqwnk" isExternal>
                 Board Game Arena
               </HotLink>
@@ -44,19 +45,19 @@ const { menu } = useMenu()
           <h5>Bombyx :</h5>
           <ul mt-4 list-image[url()] class="responsive">
             <li>
-              Apprends en plus sur
+              {{ t('branding.learn_about_us') }}
               <HotLink href="https://studiobombyx.com/" isExternal>
-                Notre Site
+                {{ t('branding.our_website') }}
               </HotLink>
             </li>
             <li>
-              Visite notre compte
+              {{ t('branding.visit_our_account') }}
               <HotLink href="https://www.instagram.com/bombyx_edition" isExternal>
                 Instagram
               </HotLink>
             </li>
             <li>
-              Rejoins nous sur
+              {{ t('branding.join_us') }}
               <HotLink href="https://boardgamearena.com/group?id=16033056" isExternal>
                 Board Game Arena
               </HotLink>
@@ -65,7 +66,7 @@ const { menu } = useMenu()
         </div>
 
         <nav>
-          <h5>Les raccourcis</h5>
+          <h5>{{ t('links.title') }}</h5>
 
           <ul mt-4 class="responsive">
             <li v-for="item in menu" :key="item.label">
@@ -74,13 +75,8 @@ const { menu } = useMenu()
               </HotLink>
             </li>
             <li>
-              <HotLink :to="{ name: 'CGU' }">
-                Règlement et Conditions
-              </HotLink>
-            </li>
-            <li>
               <HotLink :to="{ name: 'Legal' }">
-                Mentions Légales
+                {{ t('links.legal') }}
               </HotLink>
             </li>
           </ul>
@@ -97,3 +93,17 @@ const { menu } = useMenu()
     </SectionContainer>
   </footer>
 </template>
+
+<i18n lang="yaml">
+fr:
+  branding:
+    our_website: "Notre Site"
+    or_on: "Ou sur"
+    learn_about_us: "Apprends en plus sur"
+    join_us: "Rejoins nous sur"
+    join_our_server: "Rejoins notre serveur"
+    visit_our_account: "Visite notre compte"
+  links:
+    title: "Les raccourcis"
+    legal: "Mentions légales"
+</i18n>
