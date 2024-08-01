@@ -3,7 +3,6 @@ definePageMeta({
   name: 'Home',
 })
 
-
 const { t, locale } = useI18n()
 
 const today = formatDate(Date.now())
@@ -26,7 +25,7 @@ const pastTournaments = computed(() => {
 
   <SectionContainer v-motion-slide-visible-once-top>
     <div row-container>
-      <img src="/assets/logo_jo_paris.svg" alt="Logo JO Paris 2024" />
+      <img src="/assets/jeux_olymbyx_logo.webp" alt="Logo Jeux Olymbyx 2024" max-w-sm w-full/>
       <div>
         <h3>{{ t('section_jo.title') }}</h3>
         <h5>{{ t('section_jo.subtitle') }}</h5>
@@ -104,7 +103,7 @@ fr:
   section_jo:
     title: "À l'occasion des Jeux Olympiques de Paris 2024"
     subtitle: "Venez participer à nos tournois de jeux de société"
-    description: "La maison d'édition Bombyx vous propose de participer à des tournois de leur jeux de société sur Board Game Arena. Les tournois sont ouverts à tous et se dérouleront du 26 juillet au 11 août 2024. Pour chaque jours des JO retrouvez un tournoi sur un jeu différent édité par Bombyx et disponible sur Board Game Arena."
+    description: "La maison d'édition Bombyx en partenariat avec le Bar à Jeux Online vous propose de participer à des tournois de leur jeux de société sur Board Game Arena. Les tournois sont ouverts à tous et se dérouleront du 26 juillet au 11 août 2024. Pour chaque jours des JO retrouvez un tournoi sur un jeu différent édité par Bombyx et disponible sur Board Game Arena."
     not_linked_to_jo: "L'évènement \"Jeux Olymbyx\" n'est en aucun cas lié de prés ou de loin aux Jeux Olympiques de Paris 2024."
   section_tournaments:
     title: "Programme des tournois"
