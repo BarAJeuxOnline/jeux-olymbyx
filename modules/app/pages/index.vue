@@ -5,18 +5,18 @@ definePageMeta({
 
 const { t, locale } = useI18n()
 
-const today = formatDate(Date.now())
+const today = ref(formatDate(Date.now()))
 
 const { data: tournaments } = await useAsyncData('tournaments', () => queryContent(locale.value, 'tournaments').sort({ date: 1 }).find())
 
 const tournamentOfTheDay = computed(() => {
-  return tournaments.value?.find((tournament) => formatDate(tournament.date) === today) || null
+  return tournaments.value?.find((tournament) => formatDate(tournament.date) === today.value) || null
 })
 const nextTournaments = computed(() => {
-  return tournaments.value?.filter((tournament) => formatDate(tournament.date) > today) || []
+  return tournaments.value?.filter((tournament) => formatDate(tournament.date) > today.value) || []
 })
 const pastTournaments = computed(() => {
-  return tournaments.value?.filter((tournament) => formatDate(tournament.date) < today) || []
+  return tournaments.value?.filter((tournament) => formatDate(tournament.date) < today.value) || []
 })
 </script>
 
@@ -54,11 +54,12 @@ const pastTournaments = computed(() => {
   </SectionContainer>
 
   <SectionContainer>
-    <template v-if="tournamentOfTheDay">
+    <template v-if="tournamentOfTheDay" :key="tournamentOfTheDay._id">
       <h1 font-serif text-shadow-md v-motion-slide-visible-once-left>
         {{ t('section_today.title') }}
       </h1>
-      <TournamentCard :key="tournamentOfTheDay._id" v-bind="tournamentOfTheDay" section-8 inline />
+
+      <TournamentCard v-bind="tournamentOfTheDay" section-8 inline />
     </template>
 
     <template v-else>
