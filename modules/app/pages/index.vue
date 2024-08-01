@@ -25,7 +25,7 @@ const pastTournaments = computed(() => {
 
   <SectionContainer v-motion-slide-visible-once-top>
     <div row-container>
-      <img src="/assets/jeux_olymbyx_logo.webp" alt="Logo Jeux Olymbyx 2024" max-w-sm w-full/>
+      <img src="/assets/jeux_olymbyx_logo.webp" alt="Logo Jeux Olymbyx 2024" max-w-sm w-full />
       <div>
         <h3>{{ t('section_jo.title') }}</h3>
         <h5>{{ t('section_jo.subtitle') }}</h5>
@@ -58,7 +58,7 @@ const pastTournaments = computed(() => {
       <h1 font-serif text-shadow-md v-motion-slide-visible-once-left>
         {{ t('section_today.title') }}
       </h1>
-      <TournamentCard v-bind="tournamentOfTheDay" section-8 inline />
+      <TournamentCard :key="tournamentOfTheDay._id" v-bind="tournamentOfTheDay" section-8 inline />
     </template>
 
     <template v-else>
@@ -77,7 +77,7 @@ const pastTournaments = computed(() => {
     </h1>
 
     <div section-8 grid lg:grid-cols-2 gap-8 lg:gap-16>
-      <template v-for="tournament in nextTournaments">
+      <template v-for="tournament in nextTournaments" :key="tournament._id">
         <TournamentCard v-bind="tournament" />
       </template>
     </div>
@@ -89,7 +89,7 @@ const pastTournaments = computed(() => {
     </h1>
 
     <div section-8 grid lg:grid-cols-2 gap-8 lg:gap-16>
-      <template v-for="tournament in pastTournaments">
+      <template v-for="tournament in pastTournaments" :key="tournament._id">
         <TournamentCard v-bind="tournament" />
       </template>
     </div>
