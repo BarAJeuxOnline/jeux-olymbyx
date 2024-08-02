@@ -4,19 +4,27 @@ definePageMeta({
 })
 
 const { t, locale } = useI18n()
+const route = useRoute()
 
-const today = ref(formatDate(Date.now()))
+const today = ref()
 
 const { data: tournaments } = await useAsyncData('tournaments', () => queryContent(locale.value, 'tournaments').sort({ date: 1 }).find())
 
 const tournamentOfTheDay = computed(() => {
+  if (!today.value) return null
   return tournaments.value?.find((tournament) => formatDate(tournament.date) === today.value) || null
 })
 const nextTournaments = computed(() => {
+  if (!today.value) return []
   return tournaments.value?.filter((tournament) => formatDate(tournament.date) > today.value) || []
 })
 const pastTournaments = computed(() => {
+  if (!today.value) return []
   return tournaments.value?.filter((tournament) => formatDate(tournament.date) < today.value) || []
+})
+
+onMounted(() => {
+  today.value = route.query.date || formatDate(Date.now())
 })
 </script>
 
