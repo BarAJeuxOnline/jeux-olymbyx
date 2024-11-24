@@ -4,14 +4,11 @@ providers = ["node"]
 cmds = [
     "npm install -g corepack",
     "corepack enable",
-    "corepack prepare pnpm@9.14.2 --activate",
+    "corepack prepare pnpm@9.4.0 --activate",
     "pnpm install"
 ]
 
 [phases.build]
 cmds = [
-    "pnpm --filter @bajo-olymbyx/app build"
+    "pnpm --filter @bajo-olymbyx/app generate"
 ]
-
-[start]
-cmd = "pnpm --filter @bajo-olymbyx/app start"
