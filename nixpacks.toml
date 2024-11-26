@@ -12,3 +12,6 @@ cmds = [
 cmds = [
     "pnpm --filter @bajo-olymbyx/app generate"
 ]
+
+[start]
+cmd = "pnpm --filter @bajo-olymbyx/app start:generate"
