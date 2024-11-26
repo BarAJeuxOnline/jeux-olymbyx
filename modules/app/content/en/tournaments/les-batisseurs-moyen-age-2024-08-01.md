@@ -1,5 +1,5 @@
 ---
-title: The Builders: Middle Ages
+title: "The Builders: Middle Ages"
 date: 2024-08-01
 bga-game-id: thebuilders
 bga-tournament-id: 307269
